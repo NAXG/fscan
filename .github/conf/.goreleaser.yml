@@ -1,8 +1,8 @@
-before:
-  hooks:
-    - sudo apt -y install libprotobuf-dev protobuf-compiler protoc-gen-go
-    - go mod tidy
-    - go generate ./...
+before_all:  # 新增这个部分
+  - hooks:
+      - sudo apt -y install libprotobuf-dev protobuf-compiler protoc-gen-go
+      - go mod tidy
+      - go generate ./...
 builds:
   - id: "with-upx"
     env:
@@ -58,8 +58,7 @@ builds:
 
 
 archives:
-  - name: my-archive
-    replacements:  # 确保这个部分被正确定义在 'archives' 下面
+  - replacements:
       darwin: Darwin
       linux: Linux
       windows: Windows
