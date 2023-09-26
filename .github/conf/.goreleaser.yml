@@ -1,7 +1,8 @@
-hooks:
-  - sudo apt -y install libprotobuf-dev protobuf-compiler protoc-gen-go
-  - go mod tidy
-  - go generate ./...
+before:
+  hooks:
+    - sudo apt -y install libprotobuf-dev protobuf-compiler protoc-gen-go
+    - go mod tidy
+    - go generate ./...
 builds:
   - id: "with-upx"
     env:
