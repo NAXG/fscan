@@ -58,11 +58,12 @@ builds:
 
 
 archives:
-  - replacements:
+  - name: my-archive
+    replacements:  # 确保这个部分被正确定义在 'archives' 下面
       darwin: Darwin
       linux: Linux
       windows: Windows
-      "386": i386
+      386: i386
       amd64: x86_64
 checksum:
   name_template: 'checksums.txt'
